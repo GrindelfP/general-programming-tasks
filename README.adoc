@@ -1,3 +1,11 @@
 = General Programming tasks =
 
 This is a repository, where I store the tasks on my General Programming university course. 
+
+
+== Task 1 ==
+
+This task is dedicated to implementation of a Stack data structure in C programming language. The task is divided in several parts:
+
+1. stack with capability to store only integer nubers;
+2. stack with capability to store any type of data.
