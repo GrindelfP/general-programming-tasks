@@ -1,3 +1,17 @@
+/*
+   _____        _____ _             _    
+  / ____|      / ____| |           | |   
+ | |  __ _____| (___ | |_ __ _  ___| | __
+ | | |_ |______\___ \| __/ _` |/ __| |/ /
+ | |__| |      ____) | || (_| | (__|   < 
+  \_____|     |_____/ \__\__,_|\___|_|\_\
+                                         
+    Grindelf-Stack. General-purposed stack source code file.
+
+    Created by GrindelfP on 2025-02-17.                                        
+
+*/
+
 #include "grindelf-stack.h"
 
 GrindelfStack* createGrindelfStack(int size, size_t elementSize) {

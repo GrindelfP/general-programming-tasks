@@ -1,3 +1,17 @@
+/*
+   _____        _____ _             _    
+  / ____|      / ____| |           | |   
+ | |  __ _____| (___ | |_ __ _  ___| | __
+ | | |_ |______\___ \| __/ _` |/ __| |/ /
+ | |__| |      ____) | || (_| | (__|   < 
+  \_____|     |_____/ \__\__,_|\___|_|\_\
+                                         
+    Grindelf-Stack. General-purposed stack header file.
+
+    Created by GrindelfP on 2025-02-17.                                        
+
+*/
+
 #ifndef GRINDELF_QUEUE_QUEUE_H
 #define GRINDELF_QUEUE_QUEUE_H
 

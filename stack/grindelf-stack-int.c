@@ -6,7 +6,7 @@
  | |__| |      ____) | || (_| | (__|   < 
   \_____|     |_____/ \__\__,_|\___|_|\_\
                                          
-    Grindelf-Stack. Integer dedicated stack header file.
+    Grindelf-Stack. Integer dedicated stack source code file.
 
     Created by GrindelfP on 2025-02-17.                                        
 
