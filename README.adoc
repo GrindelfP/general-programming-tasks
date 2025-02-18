@@ -9,3 +9,12 @@ This task is dedicated to implementation of a Stack data structure in C programm
 
 1. stack with capability to store only integer nubers;
 2. stack with capability to store any type of data.
+
+The first part is completed in grindelf-stack-int header and source code files and simply stores integers as an array (a pointer to the integer value).
+
+The second part is completed in grindelf-stack header and source code files and uses the 
+[source, c]
+----
+void *
+----
+pointer to store the values of different types.
