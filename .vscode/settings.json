@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "vector-type.h": "c",
+        "vector-int.h": "c",
+        "stdlib.h": "c",
+        "vector-macros.h": "c"
+    }
+}

@@ -12,35 +12,80 @@
     Created by GrindelfP on 2025-02-24. 
 
 */
+
 #include "vector-type.h"
 #include "vector-int.h"
+#include "vector-macros.h"
 
-IVectorInt createVectorInt(int size) {
+IVectorInt initVectorInt(int size) {
 
     VectorInt* vector = (VectorInt*)malloc(sizeof(VectorInt));
 
-    if (size > 0 || size == 0) {
+    if (size >= 0) {
         vector->buffer = (int*)malloc(size * sizeof(int));
         memset(vector->buffer, 0, size);
         vector->capacity = size;
-        vector->count = size;
+        vector->count = 0;
     } else {
-        WRONG_SIZE_MESSAGE;
+        NEGATIVE_SIZE_ERROR_MESSAGE;
     }
 
     return vector;
 }
 
-int* getDataVectorInt(IVectorInt vector) {
+int* getDataFromVectorInt(IVectorInt vector) {
 
-    VectorInt* vectorPointer = (VectorInt*)vector;
+    CAST_VECTOR_INT;
 
     return vectorPointer->buffer;
 }
 
+void appendToVectorInt(IVectorInt vector, int value) {
+
+    CAST_VECTOR_INT;
+
+    if (vectorPointer->capacity == vectorPointer->count + 1) RESIZE_VECTOR;
+    
+    memset(vectorPointer->buffer[vectorPointer->count++], value, sizeof(int));
+}
+
+void remendFromVectorInt(IVectorInt vector) {
+
+    CAST_VECTOR_INT;
+
+    if (vectorPointer->count > 0) vectorPointer->buffer[vectorPointer->count--] = NULL;
+    else EMPTY_VECTOR_WARNING_MESSAGE;
+}
+
+int elem(IVectorInt vector, int position) {
+
+    int value;
+    CAST_VECTOR_INT;
+
+    if (position >= 0 && position <= vectorPointer->count) {
+        value = vectorPointer->buffer[position];
+    } else if (position > vectorPointer->count) { TOOBIG_INDEX_SCENARIO(value); }
+    else { NEGATIVE_INDEX_SCENARIO(value); }
+    
+    return value;
+}
+
+void insertIntoVectorInt(IVectorInt vector, int position, int value) {
+
+    // TODO: wrong logic
+
+    CAST_VECTOR_INT;
+
+    if (vectorPointer->capacity == vectorPointer->count + 1) RESIZE_VECTOR;
+    while (position <= vectorPointer->capacity) RESIZE_VECTOR;
+    
+    vectorPointer->count = vectorPointer->capacity;
+    vectorPointer->buffer[position];
+}
+
 void resizeVectorInt(IVectorInt vector) {
 
-    VectorInt* vectorPointer = (VectorInt*)vector;
+    CAST_VECTOR_INT;
 
     if (vectorPointer->capacity == 0) vectorPointer->capacity = 1;
     else vectorPointer->capacity = vectorPointer->capacity * 2;
@@ -52,21 +97,9 @@ void resizeVectorInt(IVectorInt vector) {
     }
 }
 
-void appendVectorInt(IVectorInt vector, int value) {
-
-    VectorInt* vectorPointer = (VectorInt*)vector;
-
-    if (vectorPointer->capacity == vectorPointer->count) {
-        resizeVectorInt(vector);
-        vectorPointer = (VectorInt*)vector;
-    } 
-    vectorPointer->count++;
-    memset(vectorPointer->buffer[vectorPointer->count], value, sizeof(int));
-}
-
 void disposeVectorInt(IVectorInt vector) {
 
-    VectorInt* vectorPointer = (VectorInt*)vector;
+    CAST_VECTOR_INT;
 
     for (size_t i = 0; i < vectorPointer->capacity; ++i) {
         free(vectorPointer->buffer[i]);
@@ -74,24 +107,3 @@ void disposeVectorInt(IVectorInt vector) {
     free(vectorPointer->buffer);
     free(vectorPointer);
 }
-
-void insertVectorInt(IVectorInt vector, int position, int value) {
-
-    VectorInt* vectorPointer = (VectorInt*)vector;
-
-    if (vectorPointer->capacity == vectorPointer->count) {
-        resizeVectorInt(vector);
-        vectorPointer = (VectorInt*)vector;
-    }
-
-    while (position <= vectorPointer->capacity) {
-        resizeVectorInt(vector);
-        vectorPointer = (VectorInt*)vector;
-    }
-    
-    vectorPointer->count = vectorPointer->capacity;
-    vectorPointer->buffer[position];
-
-    
-}
-
