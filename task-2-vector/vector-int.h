@@ -74,6 +74,14 @@ int elem(IVectorInt vector, int position);
 void insertIntoVectorInt(IVectorInt vector, int position, int value);
 
 /**
+ * Removes data from the vector at particular index.
+ * 
+ * @param vector IVectorInt pointer to the vector.
+ * @param position required index of element to be removed.
+ */
+void popFromVectorInt(IVectorInt vector, int position);
+
+/**
  * Resizes vector to fit in more data.
  * 
  * @param vector IVectorInt pointer to the vector.

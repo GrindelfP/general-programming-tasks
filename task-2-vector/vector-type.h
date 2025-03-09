@@ -7,4 +7,11 @@ struct VectorInt {
     int* buffer;
 } typedef VectorInt;
 
+struct Vector {
+    int capacity;
+    int count;
+    void** buffer;
+
+} typedef Vector;
+
 #endif
