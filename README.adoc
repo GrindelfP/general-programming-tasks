@@ -67,5 +67,18 @@ I dremove(I start, I fin, F fucnt);
 ----
 where I are iterators' type and F is the type of the function. The function operates with values of type T which is not provided as a template.
 
-The function should use iterators and should place one after the last element of the updated container with removed value instances.
+The function should use iterators and should place one after the last element of the new container.
+
+=== Task 3.4 ===
+ 
+Create a C++ template function dunique, which will return a new collection containing only unique values out of old collection from provided range [start, fin]. It will have following signature:
+
+[source, c++]
+----
+template<typename I>
+I dunique(I start, I fin);
+----
+where I are iterators' type.
+
+The function should use iterators and should place one after the last element of the new container.
 
