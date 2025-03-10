@@ -71,16 +71,21 @@ int elem(IVectorInt vector, int position) {
 }
 
 void insertIntoVectorInt(IVectorInt vector, int position, int value) {
-
-    // TODO: wrong logic
+	
+	// NOT IMPLEMENTED
 
     CAST_VECTOR_INT;
 
+    while (position >= vectorPointer->capacity) RESIZE_VECTOR;
     if (vectorPointer->capacity == vectorPointer->count + 1) RESIZE_VECTOR;
-    while (position <= vectorPointer->capacity) RESIZE_VECTOR;
     
-    vectorPointer->count = vectorPointer->capacity;
     vectorPointer->buffer[position];
+}
+
+void popFromVectorInt(IVectorInt vector, int position) {
+	
+	// NOT IMPLEMENTED
+	
 }
 
 void resizeVectorInt(IVectorInt vector) {
