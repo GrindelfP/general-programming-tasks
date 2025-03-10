@@ -29,3 +29,15 @@ The task is to create an implementation of a vector data structure in C programm
 2. vector with capability to store any type of data.
 
 The both vectors have standard functionality to get data from the vector, to resize the vector, to append to the vector and to insert to the vector, as well as to create and to destroy the vector itself.
+
+== Task 3 ==
+
+Create a C++ template function dremove, which will be able to remove all occurances of arbitrary value from provided range [start, fin] of a container type, e.g. list or vector. It will have following signature:
+[source, c++]
+----
+template<typename T, typename I>
+I dremove(I start, I fin, T value);
+----
+
+The function should use iterators and should place one after the last element of the updated container with removed value instances.
+
