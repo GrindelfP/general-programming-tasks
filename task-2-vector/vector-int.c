@@ -23,7 +23,7 @@ IVectorInt initVectorInt(int size) {
 
     if (size >= 0) {
         vector->buffer = (int*)malloc(size * sizeof(int));
-        memset(vector->buffer, 0, size);
+        memset(vector->buffer, 0, size * sizeof(int));
         vector->capacity = size;
         vector->count = 0;
     } else {
@@ -46,14 +46,14 @@ void appendToVectorInt(IVectorInt vector, int value) {
 
     if (vectorPointer->capacity == vectorPointer->count + 1) RESIZE_VECTOR;
     
-    memset(vectorPointer->buffer[vectorPointer->count++], value, sizeof(int));
+    vectorPointer->buffer[vectorPointer->count++] = value;
 }
 
 void remendFromVectorInt(IVectorInt vector) {
 
     CAST_VECTOR_INT;
 
-    if (vectorPointer->count > 0) vectorPointer->buffer[vectorPointer->count--] = NULL;
+    if (vectorPointer->count > 0) vectorPointer->buffer[vectorPointer->count--] = NULL_INT;
     else EMPTY_VECTOR_WARNING_MESSAGE;
 }
 
@@ -97,18 +97,14 @@ void resizeVectorInt(IVectorInt vector) {
     
     vectorPointer->buffer = realloc(vectorPointer->buffer, vectorPointer->capacity);
     
-    for (size_t i = vectorPointer->capacity / 2; i < vectorPointer->capacity; ++i) {
-        memset(vectorPointer->buffer[i], 0, sizeof(int));
-    }
+	memset(vectorPointer->buffer + vectorPointer->capacity/2, 0, vectorPointer->capacity / 2 * sizeof(int));
 }
 
 void disposeVectorInt(IVectorInt vector) {
 
     CAST_VECTOR_INT;
 
-    for (size_t i = 0; i < vectorPointer->capacity; ++i) {
-        free(vectorPointer->buffer[i]);
-    }
     free(vectorPointer->buffer);
     free(vectorPointer);
 }
+

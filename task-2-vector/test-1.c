@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 	int* data = getDataFromVectorInt(vectorint);
 
 	for (int i = 0; i < size; ++i) {
-		printf("%d", data[i]);
+		printf("%d\n", data[i]);
 	}
 
 	return 0;
