@@ -32,12 +32,40 @@ The both vectors have standard functionality to get data from the vector, to res
 
 == Task 3 ==
 
+=== Task 3.1 ==
 Create a C++ template function dremove, which will be able to remove all occurances of arbitrary value from provided range [start, fin] of a container type, e.g. list or vector. It will have following signature:
 [source, c++]
 ----
 template<typename T, typename I>
 I dremove(I start, I fin, T value);
 ----
+where I are iterators' type and T is the container's values type.
+
+The function should use iterators and should place one after the last element of the updated container with removed value instances.
+
+=== Task 3.2 ===
+ 
+Create a C++ template function dremoveIf, which will be able to remove all occurances of values from provided range [start, fin] of a container type which fit some given condition pred. It will have following signature:
+
+[source, c++]
+----
+template<typename P, typename I>
+I dremove(I start, I fin, P pred);
+----
+where I are iterators' type and P is the type of predicate condition.
+
+The function should use iterators and should place one after the last element of the updated container with removed value instances.
+
+=== Task 3.3 ===
+ 
+Create a C++ template function transform, which will be able to apply some function of type F to each value from provided range [start, fin]. It will have following signature:
+
+[source, c++]
+----
+template<typename P, typename F>
+I dremove(I start, I fin, F fucnt);
+----
+where I are iterators' type and F is the type of the function. The function operates with values of type T which is not provided as a template.
 
 The function should use iterators and should place one after the last element of the updated container with removed value instances.
 
