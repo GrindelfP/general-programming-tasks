@@ -16,6 +16,7 @@
 #include "vector-type.h"
 #include "vector-int.h"
 #include "vector-macros.h"
+#include <stdlib.h>
 #include <string.h>
 
 IVectorInt initVectorInt(int size) {
@@ -45,8 +46,7 @@ void appendToVectorInt(IVectorInt vector, int value) {
 
     CAST_VECTOR_INT;
 
-    if (vectorPointer->capacity == vectorPointer->count + 1) RESIZE_VECTOR;
-    
+    if (vectorPointer->capacity == vectorPointer->count) RESIZE_VECTOR;    
     vectorPointer->buffer[vectorPointer->count++] = value;
 }
 
@@ -54,7 +54,7 @@ void remendFromVectorInt(IVectorInt vector) {
 
     CAST_VECTOR_INT;
 
-    if (vectorPointer->count > 0) vectorPointer->buffer[vectorPointer->count--] = NULL_INT;
+    if (vectorPointer->count > 0) vectorPointer->buffer[vectorPointer->count--] = NULL_VAL;
     else EMPTY_VECTOR_WARNING_MESSAGE;
 }
 
@@ -65,8 +65,11 @@ int elem(IVectorInt vector, int position) {
 
     if (position >= 0 && position <= vectorPointer->count) {
         value = vectorPointer->buffer[position];
-    } else if (position > vectorPointer->count) { TOOBIG_INDEX_SCENARIO(value); }
-    else { NEGATIVE_INDEX_SCENARIO(value); }
+    } else if (position > vectorPointer->count) { 
+		TOOBIG_INDEX_SCENARIO(value); 
+	} else { 
+		NEGATIVE_INDEX_SCENARIO(value);
+	}
     
     return value;
 }
@@ -75,16 +78,33 @@ void insertIntoVectorInt(IVectorInt vector, int position, int value) {
 
     CAST_VECTOR_INT;
 
-	if (position <= vectorPointer->count) {		
-		if (vectorPointer->capacity == vectorPointer->count + 2) RESIZE_VECTOR;
-		memcpy(&vectorPointer->buffer[position + 1], &vectorPointer->buffer[position], (vectorPointer->capacity / 2) * sizeof(int));
-	} else INSERT_AFTER_DATA_MESSAGE;
+    if (position >= 0 && position < vectorPointer->count) {
+		if (vectorPointer->capacity <= vectorPointer->count + 1) RESIZE_VECTOR;
+		memcpy(&vectorPointer->buffer[position + 1], &vectorPointer->buffer[position], 
+		 (vectorPointer->capacity - position + 1) * sizeof(int)
+		);
+		vectorPointer->count++;
+	} else if (position > vectorPointer->count) { 
+		INSERT_AFTER_DATA_MESSAGE; 
+	} else { 
+		NEGATIVE_INDEX_WARNING;
+	}
 }
 
 void popFromVectorInt(IVectorInt vector, int position) {
 	
-	// NOT IMPLEMENTED
-	
+	CAST_VECTOR_INT;
+
+	if (position >= 0 && position < vectorPointer->count) {
+		memcpy(&vectorPointer->buffer[position - 1], &vectorPointer->buffer[position], 
+		 (vectorPointer->capacity - position + 1) * sizeof(int)
+		);
+		vectorPointer->count--;
+	} else if (position > vectorPointer->count) { 
+		INSERT_AFTER_DATA_MESSAGE; 
+	} else { 
+		NEGATIVE_INDEX_WARNING;
+	}
 }
 
 void resizeVectorInt(IVectorInt vector) {
@@ -96,7 +116,7 @@ void resizeVectorInt(IVectorInt vector) {
     
     vectorPointer->buffer = realloc(vectorPointer->buffer, vectorPointer->capacity);
     
-	memset(vectorPointer->buffer + vectorPointer->capacity/2, 0, vectorPointer->capacity / 2 * sizeof(int));
+	memset(vectorPointer->buffer + vectorPointer->capacity/2, 0, vectorPointer->capacity/2 * sizeof(int));
 }
 
 void disposeVectorInt(IVectorInt vector) {

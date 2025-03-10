@@ -16,6 +16,8 @@ int main(int argc, char** argv) {
 		printf("%d\n", data[i]);
 	}
 
+	disposeVectorInt(vectorint);
+
 	return 0;
 }
 

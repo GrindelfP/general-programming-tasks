@@ -12,6 +12,6 @@ struct Vector {
     int count;
     void** buffer;
 
-} typedef Vector;
+} typedef GrindelfVector;
 
 #endif
