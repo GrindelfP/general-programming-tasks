@@ -65,7 +65,8 @@ void remendFromVectorInt(IVectorInt vector);
 int elem(IVectorInt vector, int position);
 
 /**
- * Inserts data into the vector at particular index.
+ * Inserts data into the vector at particular index inside existing part.
+ * Cannot insert data after the end of the data row.
  * 
  * @param vector IVectorInt pointer to the vector.
  * @param position required index of the new added element.
@@ -74,7 +75,8 @@ int elem(IVectorInt vector, int position);
 void insertIntoVectorInt(IVectorInt vector, int position, int value);
 
 /**
- * Removes data from the vector at particular index.
+ * Removes data from the vector at particular index inside existing part.
+ * Cannot remove data beyond the end of the data row.
  * 
  * @param vector IVectorInt pointer to the vector.
  * @param position required index of element to be removed.

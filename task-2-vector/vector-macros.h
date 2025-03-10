@@ -16,5 +16,7 @@
 #define TOOBIG_INDEX_SCENARIO(value) toobig_index_error_message_; value = NULL_INT
 #define empty_vector_warning_text_ "Vector is empty. NULL is returned!"
 #define EMPTY_VECTOR_WARNING_MESSAGE fprintf(stderr, "%s\n", empty_vector_warning_text_)
+#define insert_after_data_text_ "Attempt to insert after data row. Use append functionality to expand the data row!"
+#define INSERT_AFTER_DATA_MESSAGE fprintf(stderr, "%s\n", insert_after_data_text_)
 
 #endif

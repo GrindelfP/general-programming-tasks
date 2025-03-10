@@ -16,6 +16,7 @@
 #include "vector-type.h"
 #include "vector-int.h"
 #include "vector-macros.h"
+#include <string.h>
 
 IVectorInt initVectorInt(int size) {
 
@@ -71,15 +72,13 @@ int elem(IVectorInt vector, int position) {
 }
 
 void insertIntoVectorInt(IVectorInt vector, int position, int value) {
-	
-	// NOT IMPLEMENTED
 
     CAST_VECTOR_INT;
 
-    while (position >= vectorPointer->capacity) RESIZE_VECTOR;
-    if (vectorPointer->capacity == vectorPointer->count + 1) RESIZE_VECTOR;
-    
-    vectorPointer->buffer[position];
+	if (position <= vectorPointer->count) {		
+		if (vectorPointer->capacity == vectorPointer->count + 2) RESIZE_VECTOR;
+		memcpy(&vectorPointer->buffer[position + 1], &vectorPointer->buffer[position], (vectorPointer->capacity / 2) * sizeof(int));
+	} else INSERT_AFTER_DATA_MESSAGE;
 }
 
 void popFromVectorInt(IVectorInt vector, int position) {
