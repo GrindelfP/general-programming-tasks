@@ -62,7 +62,7 @@ Create a C++ template function transform, which will be able to apply some funct
 
 [source, c++]
 ----
-template<typename P, typename F>
+template<typename I, typename F>
 I dremove(I start, I fin, F fucnt);
 ----
 where I are iterators' type and F is the type of the function. The function operates with values of type T which is not provided as a template.
