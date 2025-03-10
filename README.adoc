@@ -32,7 +32,7 @@ The both vectors have standard functionality to get data from the vector, to res
 
 == Task 3 ==
 
-=== Task 3.1 ==
+=== Task 3.1 ===
 Create a C++ template function dremove, which will be able to remove all occurances of arbitrary value from provided range [start, fin] of a container type, e.g. list or vector. It will have following signature:
 [source, c++]
 ----
