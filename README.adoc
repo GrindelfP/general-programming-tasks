@@ -50,7 +50,7 @@ Create a C++ template function dremoveIf, which will be able to remove all occur
 [source, c++]
 ----
 template<typename P, typename I>
-I dremove(I start, I fin, P pred);
+I dremoveIf(I start, I fin, P pred);
 ----
 where I are iterators' type and P is the type of predicate condition.
 
@@ -63,7 +63,7 @@ Create a C++ template function transform, which will be able to apply some funct
 [source, c++]
 ----
 template<typename I, typename F>
-I dremove(I start, I fin, F fucnt);
+I transform(I start, I fin, F fucnt);
 ----
 where I are iterators' type and F is the type of the function. The function operates with values of type T which is not provided as a template.
 
@@ -81,4 +81,8 @@ I dunique(I start, I fin);
 where I are iterators' type.
 
 The function should use iterators and should place one after the last element of the new container.
+
+== Task 4 ==
+
+With a given set of segments (eg [1, 2], [7, 2]) make set of broken lines formed by this segments (in the case of this example it will be [1, 2, 7]). The segments can lead to cyucled broken lines but broken lines may not have branches.
 
