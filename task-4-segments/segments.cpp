@@ -92,7 +92,10 @@ std::vector<std::vector<int> > buildBrokenLine(
 		j;
 	std::vector<int> line;
 	std::vector<std::vector<int> > brokenLine;
-
+	
+	// PROBLEMS HERE
+	// 1. 12314 -> 1231 stop
+	// 2. LOOK FOR AVAILABLE EXISTING LINES not to make 12, 134, 25 -> 125, 134
 	for (i=0; i < segments.size(); ++i) {
 		line.clear();
 		for (j=i; j < segments.size(); ++j) {
@@ -103,15 +106,16 @@ std::vector<std::vector<int> > buildBrokenLine(
 				line.push_back(a);
 				line.push_back(b);
 				std::cout << line[0] << line[1] << line[2] << std::endl;			
-			}
-			// HERE LOOK FOR ANY EXISTING TAIL MATCHING a, NOT ONLY THIS ONE 
-			if (a != b && std::find(line.begin(), line.end(), a) != line.end()) {
+			} else if (a != b && std::find(line.begin(), line.end(), a) != line.end()) {
 				std::cout << "not empty but has following found\n";
 				line.push_back(b);
 				std::cout << line[0] << line[1] << line[2] << std::endl;			
 			} else if (std::find(line.begin(), line.end(), b) != line.end()) {
 				std::cout << "cycle found\n";
 				line.push_back(b);
+				break;
+			} else if (std::find(line.begin(), line.end(), a) != line.end() && a == line[0]) {
+				std::cout << "cycle blocked\n";
 				break;
 			} else { break; }
 		}
