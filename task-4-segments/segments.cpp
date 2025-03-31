@@ -2,7 +2,8 @@
 *
 *	Task 4: Segments. 
 *	Created by GrindelfP on 2024-03-30.
-*
+*	
+* 	TODO 2025-03-31: not all broken lines are 'captured'
 */
 
 #include "segments.h"
@@ -76,16 +77,17 @@ int main(int argc, char** argv) {
 * @brief Builds broken line.
 *
 * Uses provided segments list to build any possible 
-* beroken line out of this list. Broken line can be
-* cycled but cannot have branches (every node has
-* only two neighbours).
+* broken line out of this list. Broken line can be
+* cycled but cannot have branches (every node can occur
+* only in a singe broken line). Also broken lines cannot 
+* be formed by two vertices because in this case it will
+* not differ from a segment.
 *
 * @param segmetns list of segments (pairs of integers).
 *
 * @return vector of broken lines.
 */
-std::vector<std::vector<int> > buildBrokenLine(
-	const std::vector<std::pair<int, int> > segments) { 
+std::vector<std::vector<int> > buildBrokenLine(const std::vector<std::pair<int, int> > segments) { 
 
 	int 
 		a,
@@ -96,16 +98,12 @@ std::vector<std::vector<int> > buildBrokenLine(
 	std::vector<int> line;
 	std::vector<std::vector<int> > brokenLine;
 	
-	// PROBLEMS HERE
-	// 1. 12314 -> 1231 stop
-	// 2. LOOK FOR AVAILABLE EXISTING LINES not to make 12, 134, 25 -> 125, 134
 	for (i=0; i < segments.size(); ++i) {
 		if (a == b) break;
 		line.clear();
 		line.push_back(segments[i].first);
 		line.push_back(segments[i].second);
 		for (j=i; j < segments.size(); ++j) {
-			if (a == b) break;
 			a = segments[j].first;
 			b = segments[j].second;
 			last = line.size()-1;
@@ -120,7 +118,7 @@ std::vector<std::vector<int> > buildBrokenLine(
 				break;
 			} 
 		}
-		brokenLine.push_back(line);	
+		if (line.size() > 2) brokenLine.push_back(line);	
 	}
 	
 	return brokenLine;

@@ -1,4 +1,4 @@
-/**
+/*
 *
 *	Task 4: Segments. 
 *	Created by GrindelfP on 2024-03-30.
@@ -16,17 +16,17 @@
 * @brief Builds broken line.
 *
 * Uses provided segments list to build any possible 
-* beroken line out of this list. Broken line can be
-* cycled but cannot have branches (every node has
-* only two neighbours).
+* broken line out of this list. Broken line can be
+* cycled but cannot have branches (every node can occur
+* only in a singe broken line). Also broken lines cannot 
+* be formed by two vertices because in this case it will
+* not differ from a segment.
 *
-* @param segmetns list of segments (pairs of integers).
+* @param segments segments to create broken lines.
 *
 * @return void.
 */
-std::vector<std::vector<int> > buildBrokenLine(
-	const std::vector<std::pair<int, int> > segments); 
+std::vector<std::vector<int> > buildBrokenLine(const std::vector<std::pair<int, int> > segments); 
 	
-
 #endif // segments_h
 
