@@ -21,14 +21,11 @@
 * only two neighbours).
 *
 * @param segmetns list of segments (pairs of integers).
-* @param brokenLine list of broken lines.
 *
 * @return void.
 */
-void buildBrokenLine(
-	const std::vector<std::pair<int, int> > segments, 
-	std::vector<std::vector<int> > brokenLine
-); 
+std::vector<std::vector<int> > buildBrokenLine(
+	const std::vector<std::pair<int, int> > segments); 
 	
 
 #endif // segments_h

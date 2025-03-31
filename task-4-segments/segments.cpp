@@ -45,16 +45,16 @@ int main(int argc, char** argv) {
 		segments.push_back(std::make_pair(a, b));
 	}
 	
-	// ====================
-	// BUILDING BROKEN LINE
-	// ====================
-	buildBrokenLine(segments, brokenLine);
+	// =====================
+	// BUILDING BROKEN LINES
+	// =====================
+	brokenLine = buildBrokenLine(segments);
 		
 
 	// ==================
 	// OUTPUT BROKEN LINE
 	// ==================
-	if (brokenLione.size()  == 0) std::cout << "There is no broken lines built!\n";
+	if (brokenLine.size()  == 0) std::cout << "There is no broken lines built!\n";
 	else {
 		for (i = 0; i < brokenLine.size(); ++i) {
 			std::cout << brokenLine.size() << std::endl;
@@ -80,19 +80,45 @@ int main(int argc, char** argv) {
 * only two neighbours).
 *
 * @param segmetns list of segments (pairs of integers).
-* @param brokenLine list of broken lines.
 *
-* @return void.
+* @return vector of broken lines.
 */
-void buildBrokenLine(
-	const std::vector<std::pair<int, int> > segments, 
-	std::vector<std::vector<int> > brokenLine
-) { 
-	
-	for (std::pair<int, int> segment : segments) {
-		
-	}			
+std::vector<std::vector<int> > buildBrokenLine(
+	const std::vector<std::pair<int, int> > segments) { 
+	int 
+		a,
+		b,
+		i,
+		j;
+	std::vector<int> line;
+	std::vector<std::vector<int> > brokenLine;
 
-	return;
+	for (i=0; i < segments.size(); ++i) {
+		line.clear();
+		for (j=i; j < segments.size(); ++j) {
+			a = segments[j].first;
+			b = segments[j].second;
+			if (a != b && line.size() == 0) {
+				std::cout << "empty and put both\n";
+				line.push_back(a);
+				line.push_back(b);
+				std::cout << line[0] << line[1] << line[2] << std::endl;			
+			}
+			// HERE LOOK FOR ANY EXISTING TAIL MATCHING a, NOT ONLY THIS ONE 
+			if (a != b && std::find(line.begin(), line.end(), a) != line.end()) {
+				std::cout << "not empty but has following found\n";
+				line.push_back(b);
+				std::cout << line[0] << line[1] << line[2] << std::endl;			
+			} else if (std::find(line.begin(), line.end(), b) != line.end()) {
+				std::cout << "cycle found\n";
+				line.push_back(b);
+				break;
+			} else { break; }
+		}
+		std::cout << "Line being saved!\n";	
+		brokenLine.push_back(line);	
+	}
+
+	return brokenLine;
 }
 
