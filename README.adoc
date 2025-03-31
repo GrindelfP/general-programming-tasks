@@ -86,3 +86,8 @@ The function should use iterators and should place one after the last element of
 
 With a given set of segments (eg [1, 2], [7, 2]) make set of broken lines formed by this segments (in the case of this example it will be [1, 2, 7]). The segments can lead to cyucled broken lines but broken lines may not have branches.
 
+== Task 5 ==
+
+!! INFO: `std::map` is ordered by default, and because of that key type can only be those types, which have `<` operator.
+
+Task: create a program, which produces a frequency dictionary. 
