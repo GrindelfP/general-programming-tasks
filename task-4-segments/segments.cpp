@@ -34,6 +34,7 @@ int main(int argc, char** argv) {
 	// =======================
 	// SEGMENTS INITIALIZATION
 	// =======================
+	std::cout << "\n====================\nBROKEN LINES BUILDER\n====================\n";
 	std::cout << "Please enter number of segments you want to create: ";
 	std::cin >> numberOfSegments;
 
@@ -54,11 +55,10 @@ int main(int argc, char** argv) {
 	// ==================
 	// OUTPUT BROKEN LINE
 	// ==================
-	std::cout << "\n==================================\n";
+	std::cout << "==================================\n";
 	if (brokenLine.size()  == 0) std::cout << "There is no broken lines built!\n";
 	else {
 		for (i = 0; i < brokenLine.size(); ++i) {
-			std::cout << brokenLine.size() << std::endl;
 			std::cout << "Broken line "<< i+1 <<": ";
 			for (j = 0; j < brokenLine[i].size(); ++j) {
 				std::cout << brokenLine[i][j];
