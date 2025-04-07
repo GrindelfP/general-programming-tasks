@@ -102,6 +102,6 @@ E.g.: {1, 2, 2, 3, 3, 5} -> {1, 2, 3, 5}.
 
 === Task 6.2 ===
 
-Create the `unique2(it1, it2, it_out)` function, which will return iterator for the container with only unique values of the initial container. This time the initial container is not oredered. Nontheless, the complexity should be linear, not squared.
+Create the `unique3(it1, it2, it_out)` function, which will return iterator for the container with only unique values of the initial container. This time the initial container is not oredered. Nontheless, the complexity should be linear, not squared.
 
 E.g.: {7, 1, 5, 1, 2, 3, 2} -> {7, 1, 5, 2, 3}.
