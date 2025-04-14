@@ -1,12 +1,18 @@
+namespace CollectionsTask;
+
 public static class GExtension
 {
-    public static IEnumerable<T> Filter(
+    public static IEnumerable<T> Filter<T>(
         IEnumerable<T> collection,
-        Predicate<int> predicate
-    ) {
+        Predicate<T> predicate
+    )
+    {
         foreach (var value in collection)
         {
-            yield return predicate(value);
+            if (predicate(value))
+            {
+                yield return value;
+            }
         }
     }
 }
