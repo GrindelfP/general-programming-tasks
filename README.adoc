@@ -69,19 +69,6 @@ where I are iterators' type and F is the type of the function. The function oper
 
 The function should use iterators and should place one after the last element of the new container.
 
-=== Task 3.4 ===
- 
-Create a C++ template function dunique, which will return a new collection containing only unique values out of old collection from provided range [start, fin]. It will have following signature:
-
-[source, c++]
-----
-template<typename I>
-I dunique(I start, I fin);
-----
-where I are iterators' type.
-
-The function should use iterators and should place one after the last element of the new container.
-
 == Task 4 ==
 
 With a given set of segments (eg [1, 2], [7, 2]) make set of broken lines formed by this segments (in the case of this example it will be [1, 2, 7]). The segments can lead to cyucled broken lines but broken lines may not have branches.
