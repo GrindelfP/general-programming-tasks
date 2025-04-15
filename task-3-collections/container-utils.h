@@ -20,7 +20,7 @@
 template<typename Type, typename Iterator>
 Iterator dremove(Iterator start, Iterator fin, Type value);
 
-/// @brief 
+/// @brief Removes value which not fit the condition predicate.
 ///
 /// @tparam Predicate predicate type.
 /// @tparam Iterator iterator type. 
