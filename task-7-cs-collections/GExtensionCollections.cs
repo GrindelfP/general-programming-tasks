@@ -2,11 +2,11 @@ namespace CollectionsTask;
 
 public static class GExtensionCollections
 {
-    public static IEnumerable<T> Transform<T>(this IEnumerable<T> collection, Func<T, T> transform)
+    public static IEnumerable<T> Transform<T>(this IEnumerable<T> collection, Func<T, T> transformer)
     {
         foreach (var value in collection)
         {
-            yield return transform(value);
+            yield return transformer(value);
         }
     }
     
