@@ -1,4 +1,6 @@
 *.out
 .vscode
 .idea
+bin
+obj
 
