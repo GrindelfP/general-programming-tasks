@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace CollectionsTask;
 
 public static class GExtensionCollections
@@ -33,5 +30,36 @@ public static class GExtensionCollections
             accumulator = function(accumulator, iterator.Current);
         }
         return accumulator;
+    }
+
+    /// <summary>
+    /// Returns collection of unique values for a given collection
+    /// with possible duplicate values.
+    /// </summary>
+    /// 
+    /// <param name="collection">
+    /// Initial collection
+    /// </param>
+    /// 
+    /// <typeparam name="T">
+    /// Type of the elements of the colllection.
+    /// </typeparam>
+    /// 
+    /// <returns>
+    /// Collection of unique values out of initial collection.
+    /// </returns>
+    public static IEnumerable<T> Unique<T>(this IEnumerable<T> collection)
+    {
+        using var iterator = collection.GetEnumerator();
+        var value = iterator.Current;
+        yield return value;
+        while (iterator.MoveNext())
+        {
+            if (!value!.Equals(iterator.Current))
+            {
+                value = iterator.Current;
+                yield return value;
+            }
+        }
     }
 }

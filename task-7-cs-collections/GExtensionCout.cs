@@ -17,11 +17,11 @@ public static class GExtensionCout
         if (endl) Console.WriteLine();
     }
 
-    public static void Cout<T>(this T data, bool endl = true)
-    {
-        Console.Write(data);
-        if (endl) Console.WriteLine();
-    }
+    // public static void Cout<T>(this T data, bool endl = true)
+    // {
+    //     Console.Write(data);
+    //     if (endl) Console.WriteLine();
+    // }
 
     public static void Cout(this int integer, bool endl = true)
     {
