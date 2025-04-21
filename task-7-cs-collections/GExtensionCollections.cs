@@ -62,16 +62,19 @@ public static class GExtensionCollections
             }
         }
     }
-    
+
     /// <summary>
     /// Returns collection of unique values for a given unordered
     /// collection with possible duplicate values.
-    ///
+    /// 
     /// Performs with linear time.
     /// </summary>
     /// 
     /// <param name="collection">
     /// Initial collection
+    /// </param>
+    /// <param name="verboseSteps">
+    /// Whether print number of steps taken to complete the process or not.
     /// </param>
     /// 
     /// <typeparam name="T">
@@ -81,15 +84,19 @@ public static class GExtensionCollections
     /// <returns>
     /// Collection of unique values out of initial collection.
     /// </returns>
-    public static IEnumerable<T> Unique2<T>(this IEnumerable<T> collection)
+    public static IEnumerable<T> Unique2<T>(this IEnumerable<T> collection, bool verboseSteps = false)
     {
+        var counter = 0;
         using var iterator = collection.GetEnumerator();
         var set = new HashSet<T>();
         while (iterator.MoveNext())
         {
+            counter++;
             set.Add(iterator.Current);
         }
 
+        if (verboseSteps) counter.Cout();
+        
         return set;
     }
     

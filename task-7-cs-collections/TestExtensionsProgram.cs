@@ -48,5 +48,16 @@ public static class TestExtensionsProgram
         var unique2 = numbers3.Unique2();
         "Unique values 2: ".Cout(endl: false);
         unique2.Cout();
+        
+        // ================== //
+        // UNIQUE 2 TIME TEST //
+        // ================== //
+        var numbers4 = new List<int>(); // Enumerable.Range(0, 10000).ToList();
+        var random = new Random();
+        for (var i = 0; i < 10000; i++)
+        {
+            numbers4.Add(random.Next());
+        }
+        var unique3 = numbers4.Unique2(verboseSteps: true);
     }
 }
