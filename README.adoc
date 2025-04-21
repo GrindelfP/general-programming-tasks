@@ -96,23 +96,64 @@ E.g.: {7, 1, 5, 1, 2, 3, 2} -> {7, 1, 5, 2, 3}.
 
 == Task 7 ==
 
+=== Task 7.1 ===
+
+Implement function `public static IEnumerate<T> Transform`:
+[source, c#]
+----
+public static IEnumerate<T> Transform(this IEnumerable<T> collection, Func<T, T> transformer);
+----
+
+This function updates the initial collection values with some function 'transformer' and returns updated values. 
+
 === Task 7.2 ===
 
 Implement function `public static IEnumerate<T> Filter`:
 [source, c#]
 ----
-public static IEnumerate<T> Filter(IEnumerable<T> collection, Predicate<int> predicate);
+public static IEnumerate<T> Filter(this IEnumerable<T> collection, Predicate<int> predicate);
 ----
 
 This function filters initial collection and returns values that satisfy the given predicate. 
 
 
-=== Task 7.2 ===
+=== Task 7.3 ===
 
 Implement function `public static T Reduce`:
 [source, c#]
 ----
-public static T Reduce(IEnumerable<T>, Func<T, T, T> func);
+public static T Reduce(this IEnumerable<T>, Func<T, T, T> func);
 ----
 
 This function  reduces all the values of a collection to one value. 
+
+=== Task 7.4 ===
+
+Implement function `public static IEnumerate<T> Unique`:
+[source, c#]
+----
+public static IEnumerate<T> Unique(this IEnumerable<T> collection);
+----
+
+This function filters initial collection (ordered) and returns only unique values. 
+
+=== Task 7.5 ===
+
+Implement function `public static IEnumerate<T> Unique2`:
+[source, c#]
+----
+public static IEnumerate<T> Unique2(this IEnumerable<T> collection);
+----
+
+This function filters unordered initial collection and returns only unique values. Requirement: the function must perform the job with linear time. 
+
+=== Task 7.6 ===
+
+Implement function `public static IEnumerate<T> XOR`:
+[source, c#]
+----
+public static IEnumerate<T> XOR(this IEnumerable<T> thisCollection, IEnumerable<T> other);
+----
+
+This function performs the XOR operation on two sets and returns the resulting set.
+
