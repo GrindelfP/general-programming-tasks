@@ -42,7 +42,7 @@ public static class GExtensionCollections
     /// </param>
     /// 
     /// <typeparam name="T">
-    /// Type of the elements of the colllection.
+    /// Type of the elements of the collection.
     /// </typeparam>
     /// 
     /// <returns>
@@ -78,7 +78,7 @@ public static class GExtensionCollections
     /// </param>
     /// 
     /// <typeparam name="T">
-    /// Type of the elements of the colllection.
+    /// Type of the elements of the collection.
     /// </typeparam>
     /// 
     /// <returns>
