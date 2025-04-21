@@ -62,4 +62,58 @@ public static class GExtensionCollections
             }
         }
     }
+    
+    /// <summary>
+    /// Returns collection of unique values for a given unordered
+    /// collection with possible duplicate values.
+    ///
+    /// Performs with linear time.
+    /// </summary>
+    /// 
+    /// <param name="collection">
+    /// Initial collection
+    /// </param>
+    /// 
+    /// <typeparam name="T">
+    /// Type of the elements of the colllection.
+    /// </typeparam>
+    /// 
+    /// <returns>
+    /// Collection of unique values out of initial collection.
+    /// </returns>
+    public static IEnumerable<T> Unique2<T>(this IEnumerable<T> collection)
+    {
+        using var iterator = collection.GetEnumerator();
+        var set = new HashSet<T>();
+        while (iterator.MoveNext())
+        {
+            set.Add(iterator.Current);
+        }
+
+        return set;
+    }
+    
+    /// <summary>
+    /// Performs XOR operation over given two sets.
+    /// </summary>
+    /// 
+    /// <param name="thisCollection">
+    /// First set.
+    /// </param>
+    /// 
+    /// <param name="other">
+    /// Second set.
+    /// </param>
+    /// 
+    /// <typeparam name="T">
+    /// Set's values type.
+    /// </typeparam>
+    /// 
+    /// <returns>
+    /// Resulting set.
+    /// </returns>
+    public static IEnumerable<T> Xor<T>(this IEnumerable<T> thisCollection, IEnumerable<T> other)
+    {
+        throw new NotImplementedException();
+    }
 }
