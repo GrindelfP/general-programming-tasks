@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/CollectionsTask/CollectionsTask.csproj": {}
+    "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/CollectionsTask.csproj": {}
   },
   "projects": {
-    "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/CollectionsTask/CollectionsTask.csproj": {
+    "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/CollectionsTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/CollectionsTask/CollectionsTask.csproj",
+        "projectUniqueName": "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/CollectionsTask.csproj",
         "projectName": "CollectionsTask",
-        "projectPath": "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/CollectionsTask/CollectionsTask.csproj",
+        "projectPath": "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/CollectionsTask.csproj",
         "packagesPath": "/Users/grindelf/.nuget/packages/",
-        "outputPath": "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/CollectionsTask/obj/",
+        "outputPath": "/Users/grindelf/Programming/my/c++/general-programming-tasks/task-7-cs-collections/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/grindelf/.nuget/NuGet/NuGet.Config"
