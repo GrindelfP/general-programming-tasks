@@ -11,7 +11,7 @@
 ///
 /// Takes three arguments: first two are start and finish defining the range 
 /// in a given container from which values equal to provided value (third agrgument)
-/// is removed. Than the iterator, pointing to the end of a new container
+/// is removed. Than the iterator, pointing to the beginning of a new container
 /// with updated values is returned.
 /// 
 /// @tparam Type type of values in container.
@@ -60,5 +60,48 @@ Iterator dremoveIf(Iterator start, Iterator fin, Predicate pred);
 /// @return iterator for updated container.
 template<typename Iterator, typename Function>
 Iterator transform(Iterator start, Iterator fin, Function fucntion);
+
+template <typename Type, typename Iterator>
+Iterator dremove(Iterator start, Iterator fin, Type value) {
+    Iterator accumulator = start;
+    int counter = 0;
+
+    for (; start != fin; ++start) {
+        if (*start != value) {
+            *accumulator++ = *start; // NOTE: maybe a bug: fix - add separate increment
+            counter++;
+        }
+    }
+
+    for (; counter > 0; --counter) accumulator--;
+
+    return accumulator;
+}
+
+template <typename Predicate, typename Iterator>
+Iterator dremoveIf(Iterator start, Iterator fin, Predicate predicate) {
+    Iterator accumulator = start;
+
+    for (; start != fin; ++start) {
+        if (pred(*start)) {
+            *accumulator++ = *start; // NOTE: maybe a bug: fix - add separate increment
+        }
+    }
+
+    return accumulator;
+}
+
+template <typename Iterator, typename Function>
+Iterator transform(Iterator start, Iterator fin, Function fucntion) {
+    Iterator accumulator = start;
+
+    for (; start != fin; ++start) {
+        if (pred(*start)) {
+            *accumulator++ = fucntion(*start); // NOTE: maybe a bug: fix - add separate increment
+        }
+    }
+
+    return accumulator;
+}
 
 #endif // container_utils
