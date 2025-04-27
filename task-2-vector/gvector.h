@@ -19,13 +19,6 @@
 
 #include <stddef.h>
 
-
-/**
- * @brief Opaque pointer type for GVector.
- *
- * Users should use this type to declare instances of the GVector.
- * The actual structure definition is hidden from the user.
- */
 #define IGVectorInt void*
 
 /**
