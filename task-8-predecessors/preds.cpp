@@ -14,6 +14,7 @@
 #include "Skill.h"
 
 #define SKILLS_PATH "civ2.csv"
+#define SKILLS_SETS_PATH "civ2-ordered.txt"
 
 std::vector<Skill> readSkillsFromCSV(const std::string& filename) {
     std::vector<Skill> skills;
@@ -46,23 +47,31 @@ std::vector<Skill> readSkillsFromCSV(const std::string& filename) {
     return skills;
 }
 
+std::vector<std::vector<Skill> > buildSets(const std::vector<Skill> &skillList) {
+
+    
+
+}
+
+void writeSkillSets(const std::vector<std::vector<Skill> > &skillSets, const std::string &path) {
+
+    std::ofstream outputFile(path);
+    int number = 0;
+    for (std::vector<Skill> skillSet : skillSets) {
+        outputFile << "SET " << number << std::endl;
+        for (Skill skill : skillSet) {
+            outputFile << skill << std::endl;
+        }
+        outputFile << std::endl;
+    }
+
+}
+
 int main() {
     std::vector<Skill> skillList = readSkillsFromCSV(SKILLS_PATH);
-
-    for (const auto& skill : skillList) {
-        std::cout << skill.toString() << std::endl;
-    }
-
-    // Example of how to create a vector of pairs (name, code)
-    std::vector<std::pair<std::string, std::string>> nameCodePairs;
-    for (const auto& skill : skillList) {
-        nameCodePairs.push_back(skill.pairNameCode());
-    }
-
-    std::cout << "\nName-Code Pairs:" << std::endl;
-    for (const auto& pair : nameCodePairs) {
-        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
-    }
+    // std::vector<std::vector<Skill> > skillSets = buildSets(skillList);
+    std::vector<std::vector<Skill> > skillSets = {skillList};
+    writeSkillSets(skillSets, SKILLS_SETS_PATH);
 
     return 0;
 }
