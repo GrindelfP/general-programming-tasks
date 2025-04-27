@@ -27,9 +27,9 @@ int main() {
     }
     inputFile.close();
 
-    std::unordered_map<std::string, int> frequencyMap = getWordFrequency(fileContent);
+    std::vector<std::pair<std::string, int>> frequencyMap = getWordFrequency(fileContent);
 
-    std::cout << "Word Frequency in 'text.txt':" << std::endl;
+    std::cout << "Word Frequency in " << PATH_TO_TEXT << " (ordered by frequency):" << std::endl;
     for (const auto& pair : frequencyMap) {
         std::cout << "\"" << pair.first << "\": " << pair.second << std::endl;
     }
