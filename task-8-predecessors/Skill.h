@@ -2,6 +2,7 @@
 #define skill_h
 
 #include <string>
+#include <ostream>
 
 class Skill {
 
@@ -39,6 +40,11 @@ public:
 
     std::pair<std::string, std::string> pairNameCode() const {
         return { this->name , this->code };
+    }
+
+    friend std::ostream& operator<<(std::ostream &os, const Skill &skill) {
+        os << skill.toString();
+        return os;
     }
 };
 
