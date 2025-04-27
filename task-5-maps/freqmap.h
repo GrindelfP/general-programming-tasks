@@ -31,7 +31,7 @@
  * second element is its frequency, ordered from the most frequent word
  * to the least frequent.
  */
-std::vector<std::pair<std::string, int>> getOrderedWordFrequency(const std::string& text) {
+std::vector<std::pair<std::string, int>> getWordFrequency(const std::string& text) {
     std::unordered_map<std::string, int> wordFrequency;
     std::stringstream ss(text);
     std::string word;
