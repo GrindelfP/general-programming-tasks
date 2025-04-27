@@ -11,7 +11,7 @@
 #include <vector>
 #include <set>
 
-namespace guique {
+namespace gunique {
 
     /// @brief Creates set over container.
     ///
