@@ -158,24 +158,54 @@ public static class GExtensionCollections
     /// <summary>
     /// Performs XOR operation over given two sets.
     /// </summary>
-    /// 
+    ///
     /// <param name="thisCollection">
     /// First set.
     /// </param>
-    /// 
+    ///
     /// <param name="other">
     /// Second set.
     /// </param>
-    /// 
+    ///
     /// <typeparam name="T">
     /// Set's values type.
     /// </typeparam>
-    /// 
+    ///
     /// <returns>
-    /// Resulting set.
+    /// Resulting set containing elements that are in one set but not both.
     /// </returns>
     public static IEnumerable<T> Xor<T>(this IEnumerable<T> thisCollection, IEnumerable<T> other)
     {
-        throw new NotImplementedException();
+        var firstCounts = new Dictionary<T, int>();
+        foreach (var item in thisCollection)
+        {
+            firstCounts[item] = firstCounts.ContainsKey(item) ? firstCounts[item] + 1 : 1;
+        }
+
+        var secondCounts = new Dictionary<T, int>();
+        foreach (var item in other)
+        {
+            secondCounts[item] = secondCounts.ContainsKey(item) ? secondCounts[item] + 1 : 1;
+        }
+
+        var result = new List<T>();
+
+        foreach (var pair in firstCounts)
+        {
+            if (!secondCounts.ContainsKey(pair.Key))
+            {
+                result.AddRange(Enumerable.Repeat(pair.Key, pair.Value));
+            }
+        }
+
+        foreach (var pair in secondCounts)
+        {
+            if (!firstCounts.ContainsKey(pair.Key))
+            {
+                result.AddRange(Enumerable.Repeat(pair.Key, pair.Value));
+            }
+        }
+
+        return result;
     }
 }
