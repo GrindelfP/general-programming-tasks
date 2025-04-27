@@ -8,6 +8,9 @@
 #ifndef unique_h
 #define unique_h
 
+#include <vector>
+#include <set>
+
 namespace guique {
 
     /// @brief Creates set over container.
@@ -23,7 +26,18 @@ namespace guique {
     /// @param itOut iterator, output container.
     /// @return iterator to the output container with unique values only.
     template <typename InIt, typename OutIt>
-    OutIt unique(InIt it1, InIt it2, OutIt itOut);
+    OutIt unique(InIt it1, InIt it2, OutIt itOut) {
+        std::set<typename std::iterator_traits<InIt>::value_type> seen;
+        
+        for (; it1 != it2; ++it1) {
+            if (seen.find(*it1) == seen.end()) {
+                *itOut++ = *it1;
+                seen.insert(*it1);
+            }
+        }
+        
+        return itOut;
+    }
 
 }
 
