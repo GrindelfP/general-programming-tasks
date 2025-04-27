@@ -52,12 +52,36 @@ public static class TestExtensionsProgram
         // ================== //
         // UNIQUE 2 TIME TEST //
         // ================== //
-        var numbers4 = new List<int>(); // Enumerable.Range(0, 10000).ToList();
+        var numbers4 = new List<int>();
         var random = new Random();
         for (var i = 0; i < 10000; i++)
         {
             numbers4.Add(random.Next());
         }
-        var unique3 = numbers4.Unique2(verboseSteps: true);
+        "\nTest for a collection of 10000 elements Unique2 algorithm time".Cout();
+        numbers4.Unique2(verboseSteps: true);
+        
+        // ======== //
+        // XOR TEST //
+        // ======== //
+        var setA = new List<int> { 1, 2, 3, 4, 5 };
+        var setB = new List<int> { 3, 5, 6, 7 };
+        "\nSet A: ".Cout(endl: false);
+        setA.Cout();
+        "Set B: ".Cout(endl: false);
+        setB.Cout();
+        var xorResult = setA.Xor(setB);
+        "XOR (A ^ B): ".Cout(endl: false);
+        xorResult.Cout();
+
+        var setC = new List<string> { "apple", "banana", "cherry" };
+        var setD = new List<string> { "banana", "date" };
+        "\nSet C: ".Cout(endl: false);
+        setC.Cout();
+        "Set D: ".Cout(endl: false);
+        setD.Cout();
+        var xorResultString = setC.Xor(setD);
+        "XOR (C ^ D): ".Cout(endl: false);
+        xorResultString.Cout();
     }
 }
