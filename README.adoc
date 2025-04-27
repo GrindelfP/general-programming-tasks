@@ -157,3 +157,6 @@ public static IEnumerate<T> Xor<T>(this IEnumerable<T> thisCollection, IEnumerab
 
 This function performs the XOR operation on two sets and returns the resulting set.
 
+== Task 8 ==
+
+Find predecessors for each Civilization 2 skill and build sets, where Set A contains skills that do not require other skills to be learned before learning it, Set B contains skills that require predecessor-skills only from Set A, Set C contains skills that require predecessor-skills from Set B and Set A and so on. The program should output the file containing the skills ordered in a described way.
