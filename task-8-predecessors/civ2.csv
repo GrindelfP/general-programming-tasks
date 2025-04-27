@@ -1,0 +1,88 @@
+Advanced Flight,  Rad, Too, AFl
+Alphabet,  nil, nil, Alp
+Amphibious Warfare,  Nav, Tac, Amp
+Astronomy,  Mys, Mat, Ast
+Atomic Theory,  ToG, Phy, Ato
+Automobile,  Cmb, Stl, Aut
+Banking,  Tra, Rep, Ban
+Bridge Building,  Iro, Cst, Bri
+Bronze Working,  nil, nil, Bro
+Ceremonial Burial,  nil, nil, Cer
+Chemistry,  Uni, Med, Che
+Chivalry,  Feu, Hor, Chi
+Code of Laws,  Alp, nil, CoL
+Combined Arms,  Mob, AFl, CA
+Combustion,  Ref, Exp, Cmb
+Communism,  Phi, Ind, Cmn
+Computers,  Min, MP, Cmp
+Conscription,  Dem, Met, Csc
+Construction,  Mas, Cur, Cst
+The Corporation,  Ind, Eco, Cor
+Currency,  Bro, nil, Cur
+Democracy,  Ban, Inv, Dem
+Economics,  Uni, Ban, Eco
+Electricity,  Met, Mag, E1
+Electronics,  E1,  Cor, E2
+Engineering,  Whe, Cst, Eng
+Environmentalism,  Rec, SFl, Env
+Espionage,  Cmn, Dem, Esp
+Explosives,  Gun, Che, Exp
+Feudalism,  War, Mon, Feu
+Flight,  Cmb, ToG, Fli
+Fundamentalism,  MT,  Csc, Fun
+Fusion Power,  NP,  Sup, FP
+Genetic Engineering,  Med, Cor, Gen
+Guerrilla Warfare,  Cmn, Tac, Gue
+Gunpowder,  Inv, Iro, Gun
+Horseback Riding,  nil, nil, Hor
+Industrialization,  RR,  Ban, Ind
+Invention,  Eng, Lit, Inv
+Iron Working,  Bro, War, Iro
+Labor Union,  MP,  Gue, Lab
+The Laser,  NP,  MP, Las
+Leadership,  Chi, Gun, Ldr
+Literacy,  Wri, CoL, Lit
+Machine Tools,  Stl, Tac, Too
+Magnetism,  Phy, Iro, Mag
+Map Making,  Alp, nil, Map
+Masonry,  nil, nil, Mas
+Mass Production,  Aut, Cor, MP
+Mathematics,  Alp, Mas, Mat
+Medicine,  Phi, Tra, Med
+Metallurgy,  Gun, Uni, Met
+Miniaturization,  Too, E2, Min
+Mobile Warfare,  Aut, Tac, Mob
+Monarchy,  Cer, CoL, Mon
+Monotheism,  Phi, PT, MT
+Mysticism,  Cer, nil, Mys
+Navigation,  Sea, Ast, Nav
+Nuclear Fission,  Ato, MP, NF
+Nuclear Power,  NF,  E2, NP
+Philosophy,  Mys, Lit, Phi
+Physics,  Nav, Lit, Phy
+Plastics,  Ref, SFl, Pla
+Polytheism,  Cer, Hor, PT
+Pottery,  nil, nil, Pot
+Radio,  Fli, E1, Rad
+Railroad,  SE, Bri, RR
+Recycling,  MP, Dem, Rec
+Refining,  Che, Cor, Ref
+Refrigeration,  E1,  San, Rfg
+The Republic,  CoL, Lit, Rep
+Robotics,  Cmp, Mob, Rob
+Rocketry,  AFl, E2, Roc
+Sanitation,  Med, Eng, San
+Seafaring,  Map, Pot, Sea
+Space Flight,  Cmp, Roc, SFl
+Stealth,  Sup, Rob, Sth
+Steam Engine,  Phy, Inv, SE
+Steel,  E1,  Ind, Stl
+Superconductor,  Pla, Las, Sup
+Tactics,  Csc, Ldr, Tac
+Theology,  MT,  Feu, The
+Theory of Gravity,  Ast, Uni, ToG
+Trade,  Cur, CoL, Tra
+University,  Mat, Phi, Uni
+Warrior Code,  nil, nil, War
+The Wheel,  Hor, nil, Whe
+Writing,  Alp, nil, Wri
