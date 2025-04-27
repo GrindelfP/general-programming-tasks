@@ -152,7 +152,7 @@ public static class GExtensionCollections
 
         if (verboseSteps)
         {
-            "Steps taken to complete Unique2: ".Cout();
+            "Steps taken to complete Unique2: ".Cout(endl: false);
             counter.Cout();
         }
         
