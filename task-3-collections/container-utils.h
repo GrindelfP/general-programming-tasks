@@ -63,45 +63,34 @@ Iterator transform(Iterator start, Iterator fin, Function fucntion);
 
 template <typename Type, typename Iterator>
 Iterator dremove(Iterator start, Iterator fin, Type value) {
-    Iterator accumulator = start;
-    int counter = 0;
-
-    for (; start != fin; ++start) {
-        if (*start != value) {
-            *accumulator++ = *start; // NOTE: maybe a bug: fix - add separate increment
-            counter++;
+    Iterator result = start;
+    for (Iterator current = start; current != fin; ++current) {
+        if (*current != value) {
+            *result = *current;
+            ++result;
         }
     }
-
-    for (; counter > 0; --counter) accumulator--;
-
-    return accumulator;
+    return result;
 }
 
 template <typename Predicate, typename Iterator>
 Iterator dremoveIf(Iterator start, Iterator fin, Predicate predicate) {
-    Iterator accumulator = start;
-
-    for (; start != fin; ++start) {
-        if (pred(*start)) {
-            *accumulator++ = *start; // NOTE: maybe a bug: fix - add separate increment
+    Iterator result = start;
+    for (Iterator current = start; current != fin; ++current) {
+        if (predicate(*current)) {
+            *result = *current;
+            ++result;
         }
     }
-
-    return accumulator;
+    return result;
 }
 
 template <typename Iterator, typename Function>
-Iterator transform(Iterator start, Iterator fin, Function fucntion) {
-    Iterator accumulator = start;
-
-    for (; start != fin; ++start) {
-        if (pred(*start)) {
-            *accumulator++ = fucntion(*start); // NOTE: maybe a bug: fix - add separate increment
-        }
+Iterator transform(Iterator start, Iterator fin, Function function) { // Corrected function name to 'function'
+    for (Iterator current = start; current != fin; ++current) {
+        *current = function(*current); // Apply the function in-place
     }
-
-    return accumulator;
+    return fin; // Returns the end iterator, as transform modifies the elements in place.
 }
 
 #endif // container_utils
