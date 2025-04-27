@@ -8,24 +8,30 @@
 #ifndef freqmap_h
 #define freqmap_h
 
+#include <iostream>
+#include <fstream>
 #include <sstream>
 #include <string>
-#include <map>
+#include <unordered_map>
+#include <vector>
 #include <algorithm>
 #include <cctype>
+#include <map>
+#include "freqmap.h" // Include the header file
 
 /**
- * @brief Calculates the frequency of each word in a given text and returns an ordered map.
+ * @brief Calculates the frequency of each word in a given text and returns an ordered vector of pairs.
  *
  * This function takes a string of text as input, converts all words to lowercase,
  * removes punctuation, counts the occurrences of each unique word, and then
- * returns the word frequencies as a map ordered by frequency in descending order.
+ * returns the word frequencies as a vector of pairs ordered by frequency in descending order.
  *
  * @param text The input string of text.
- * @return A map where keys are lowercase words and values are their frequencies,
- * ordered from the most frequent word to the least frequent.
+ * @return A vector of pairs where the first element is the lowercase word and the
+ * second element is its frequency, ordered from the most frequent word
+ * to the least frequent.
  */
-std::map<std::string, int, std::function<bool(const int&, const int&)>> getWordFrequency(const std::string& text) {
+std::vector<std::pair<std::string, int>> getOrderedWordFrequency(const std::string& text) {
     std::unordered_map<std::string, int> wordFrequency;
     std::stringstream ss(text);
     std::string word;
@@ -43,24 +49,15 @@ std::map<std::string, int, std::function<bool(const int&, const int&)>> getWordF
         }
     }
 
-    // Custom comparator to order by frequency (descending)
-    auto cmp = [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
-        return a.second > b.second;
-    };
-
     // Create a vector of pairs from the unordered map
     std::vector<std::pair<std::string, int>> sortedVector(wordFrequency.begin(), wordFrequency.end());
 
-    // Sort the vector using the custom comparator
-    std::sort(sortedVector.begin(), sortedVector.end(), cmp);
+    // Custom comparator to order by frequency (descending)
+    std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
+        return a.second > b.second;
+    });
 
-    // Create an ordered map from the sorted vector
-    std::map<std::string, int, std::function<bool(const int&, const int&)>> orderedFrequencyMap;
-    for (const auto& pair : sortedVector) {
-        orderedFrequencyMap[pair.first] = pair.second;
-    }
-
-    return orderedFrequencyMap;
+    return sortedVector;
 }
 
 #endif // freqmap_h
