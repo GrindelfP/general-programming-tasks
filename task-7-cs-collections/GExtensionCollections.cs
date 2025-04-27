@@ -150,7 +150,11 @@ public static class GExtensionCollections
             set.Add(iterator.Current);
         }
 
-        if (verboseSteps) counter.Cout();
+        if (verboseSteps)
+        {
+            "Steps taken to complete Unique2: ".Cout();
+            counter.Cout();
+        }
         
         return set;
     }
